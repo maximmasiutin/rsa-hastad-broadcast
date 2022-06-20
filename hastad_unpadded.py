@@ -14,6 +14,7 @@
 from Crypto.Util.number import GCD, bytes_to_long, long_to_bytes
 import gmpy2
 
+
 def crt(list_a, list_m):
     """
     Reference: https://crypto.stanford.edu/pbc/notes/numbertheory/crt.html
@@ -36,22 +37,26 @@ def crt(list_a, list_m):
         return -1
     for i in range(len(list_m)):
         for j in range(len(list_m)):
-            if GCD(list_m[i], list_m[j])!= 1 and i!=j:
+            if GCD(list_m[i], list_m[j]) != 1 and i != j:
                 print("[+] Moduli should be pairwise co-prime")
                 return -1
     M = 1
     for i in list_m:
         M *= i
-    list_b = [M//i for i in list_m]
+    list_b = [M // i for i in list_m]
     assert len(list_b) == len(list_m)
     try:
-        list_b_inv = [int(gmpy2.invert(list_b[i], list_m[i])) for i in range(len(list_m))]
+        list_b_inv = [
+            int(gmpy2.invert(list_b[i], list_m[i])) for i in range(len(list_m))
+        ]
     except:
-        print("[+] Encountered an unusual error while calculating inverse using gmpy2.invert()")
+        print(
+            "[+] Encountered an unusual error while calculating inverse using gmpy2.invert()"
+        )
         return -1
     x = 0
     for i in range(len(list_m)):
-        x += list_a[i]*list_b[i]*list_b_inv[i]
+        x += list_a[i] * list_b[i] * list_b_inv[i]
     return x % M
 
 
@@ -88,5 +93,6 @@ def hastad_unpadded(ct_list, mod_list, e):
         print("[+] Cannot calculate CRT")
         return -1
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_crt()
