@@ -1,6 +1,7 @@
 
 # RSA Hastad Broadcast
 Copyright (c) 2022 Maxim Masiutin
+
 Copyright (c) 2018 Ashutosh Ahelleya
 
 In 1988, Johan Hastad proposed a method to decrypt an RSA message without a private key,
