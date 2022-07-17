@@ -14,7 +14,7 @@ This method was published as https://doi.org/10.1137/0217019
 and it became known as Hastad's broadcast attack.
 
 This Python 3 script can be used as a CTF (capture the flag) tool
-to demonstrate this Hastad's broadcast attack.
+to solve chellenges based on the Hastad's broadcast attack.
 
 
 ## Version istory
